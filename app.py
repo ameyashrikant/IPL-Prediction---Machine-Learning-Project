@@ -10,6 +10,8 @@ ridge_filename = 'first-innings-score-lr-model-ridge.pkl'
 ridge_regressor = pickle.load(open(ridge_filename, 'rb'))
 lasso_filename = 'first-innings-score-lr-model-lasso.pkl'
 lasso_regressor = pickle.load(open(lasso_filename, 'rb'))
+rf_filename = 'first-innings-score-lr-model-rf.pkl'
+rf_regressor = pickle.load(open(rf_filename, 'rb'))
 
 app = Flask(__name__)
 

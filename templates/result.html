@@ -69,7 +69,10 @@
 
 			<!-- Result -->
 			<div class="results">
-				<p class='result-p'>The final predicted score (range): {{ lower_limit }} to {{ upper_limit }}</p>
+				<p class='result-p'>The final predicted score (range): </p>
+                <p>Linear Regression: {{ lower_limit_linear }} to {{ upper_limit_linear }} </p>
+                <p>Ridge Regression: {{ lower_limit_ridge }} to {{ upper_limit_ridge }} </p>
+                <p> Lasso Regression: {{ lower_limit_lasso }} to {{ upper_limit_lasso }}</p>
 			</div>
 
             <!-- IPL Banner - 2 -->
@@ -120,8 +123,8 @@
         <!-- Footer -->
        <div class='footer'>
            <div class="contact">
-               <a target="_blank" href="https://github.com/anujvyas/IPL-First-Innings-Score-Prediction-Deployment"><i class="fab fa-github fa-lg contact-icon"></i></a>
-               <a target="_blank" href="https://www.linkedin.com/in/anujkvyas"><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
+               <a target="_blank" href="https://github.com/SSNegi23/IPL-Prediction---Machine-Learning-Project"><i class="fab fa-github fa-lg contact-icon"></i></a>
+               <!-- <a target="_blank" href="https://www.linkedin.com/in/anujkvyas"><i class="fab fa-linkedin fa-lg contact-icon"></i></a> -->
            </div>
            <p class='footer-description'>Made with ❤️ by Team 52.</p>
        </div>

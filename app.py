@@ -73,10 +73,12 @@ def predict():
         my_prediction_linear = float(linear_regressor.predict(data)[0])
         my_prediction_ridge = float(ridge_regressor.predict(data)[0])
         my_prediction_lasso = float(lasso_regressor.predict(data)[0])
+	my_prediction_rf = float(rf_regressor.predict(data)[0])
               
         return render_template('result.html', lower_limit_linear = my_prediction_linear-10, upper_limit_linear = my_prediction_linear+5, 
             lower_limit_ridge = my_prediction_ridge-5, upper_limit_ridge = my_prediction_ridge+2,
-            lower_limit_lasso = my_prediction_lasso-7, upper_limit_lasso = my_prediction_lasso+3)
+            lower_limit_lasso = my_prediction_lasso-7, upper_limit_lasso = my_prediction_lasso+3,
+	    lower_limit_rf = my_prediction_rf-10, upper_limit_rf = my_prediction_rf)
 
 
 

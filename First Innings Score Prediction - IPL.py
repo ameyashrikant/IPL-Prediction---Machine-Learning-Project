@@ -81,3 +81,12 @@ lasso_regressor.fit(X_train,y_train)
 # Creating a pickle file for the classifier
 file_name_lasso = 'first-innings-score-lr-model-lasso.pkl'
 pickle.dump(lasso_regressor , open(file_name_lasso,'wb'))
+
+# Random Forest Model
+from sklearn.ensemble import RandomForestRegressor
+regressor = RandomForestRegressor(n_estimators = 10, random_state = 0)
+regressor.fit(X, y)
+
+# Creating a pickle file for the classifier
+file_name = 'first-innings-score-lr-model-rf.pkl'
+pickle.dump(regressor, open(file_name,'wb'))

@@ -36,17 +36,18 @@ match_df = match_df[['date', 'bat_team_Chennai Super Kings', 'bat_team_Delhi Cap
               'overs', 'runs', 'wickets', 'runs_last_5', 'wickets_last_5', 'total']]
 
 # Splitting the data into train and test set
+X = match_df.drop(labels='total',axis=1)
 X_train = match_df.drop(labels='total',axis=1)[match_df['date'].dt.year <= 2016]
-X_test = match_df.drop(labels='total',axis=1)[match_df['date'].dt.year >= 2017]
 
+y = match_df[match_df['date'].dt.year <= 2017]['total'].values
 y_train = match_df[match_df['date'].dt.year <= 2016]['total'].values
-y_test = match_df[match_df['date'].dt.year >= 2017]['total'].values
 
 # Removing the 'date' column
+X.drop(labels='date',axis=True, inplace=True)
 X_train.drop(labels='date',axis=True, inplace=True)
-X_test.drop(labels='date',axis=True, inplace=True)
 
 # --- Model Building ---
+
 # Linear Regression Model
 from sklearn.linear_model import LinearRegression
 linear_regressor = LinearRegression()
@@ -82,7 +83,7 @@ lasso_regressor.fit(X_train,y_train)
 file_name_lasso = 'first-innings-score-lr-model-lasso.pkl'
 pickle.dump(lasso_regressor , open(file_name_lasso,'wb'))
 
-# Random Forest Model
+# Random Forest Regression Model
 from sklearn.ensemble import RandomForestRegressor
 regressor = RandomForestRegressor(n_estimators = 10, random_state = 0)
 regressor.fit(X, y)

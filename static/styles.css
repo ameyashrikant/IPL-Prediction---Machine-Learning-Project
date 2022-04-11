@@ -231,9 +231,11 @@ body{
 /* Result */
 .results{
   display: inline-block;
+  padding-top: 80px;
   width: auto;
   height: 429px;
-  line-height: 400px;
+  line-height: 20px;
+  font-style: oblique;
   text-align: center;
 }
 

@@ -70,18 +70,6 @@ ridge_regressor.fit(X_train,y_train)
 file_name = 'first-innings-score-lr-model-ridge.pkl'
 pickle.dump(ridge_regressor, open(file_name, 'wb'))
 
-#Lasso Regression Model
-from sklearn.linear_model import Lasso
-from sklearn.model_selection import GridSearchCV
-
-lasso=Lasso()
-parameters={'alpha':[1,5,10,20,35]}
-lasso_regressor=GridSearchCV(lasso,parameters,scoring='neg_mean_squared_error',cv=10)
-lasso_regressor.fit(X_train,y_train)
-
-# Creating a pickle file for the classifier
-file_name_lasso = 'first-innings-score-lr-model-lasso.pkl'
-pickle.dump(lasso_regressor , open(file_name_lasso,'wb'))
 
 # Random Forest Regression Model
 from sklearn.ensemble import RandomForestRegressor
@@ -90,4 +78,13 @@ regressor.fit(X, y)
 
 # Creating a pickle file for the classifier
 file_name = 'first-innings-score-lr-model-rf.pkl'
+pickle.dump(regressor, open(file_name,'wb'))
+
+# Articial Neural Network
+from sklearn.neural_network import MLPClassifier
+mlp = MLPClassifier(activation='relu')
+mlp.fit(X_train,y_train)
+
+# Creating a pickle file for the classifier
+file_name = 'first-innings-score-lr-model-ann.pkl'
 pickle.dump(regressor, open(file_name,'wb'))

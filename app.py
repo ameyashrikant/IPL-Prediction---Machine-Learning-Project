@@ -8,8 +8,8 @@ linear_filename = 'first-innings-score-lr-model-linear.pkl'
 linear_regressor = pickle.load(open(linear_filename, 'rb'))
 ridge_filename = 'first-innings-score-lr-model-ridge.pkl'
 ridge_regressor = pickle.load(open(ridge_filename, 'rb'))
-lasso_filename = 'first-innings-score-lr-model-lasso.pkl'
-lasso_regressor = pickle.load(open(lasso_filename, 'rb'))
+ann_filename = 'first-innings-score-lr-model-ann.pkl'
+ann = pickle.load(open(ann_filename, 'rb'))
 rf_filename = 'first-innings-score-lr-model-rf.pkl'
 rf_regressor = pickle.load(open(rf_filename, 'rb'))
 
@@ -74,12 +74,12 @@ def predict():
         data = np.array([temp_array])
         my_prediction_linear = float(linear_regressor.predict(data)[0])
         my_prediction_ridge = float(ridge_regressor.predict(data)[0])
-        my_prediction_lasso = float(lasso_regressor.predict(data)[0])
+        my_prediction_ann = int(ann.predict(data)[0])
 	my_prediction_rf = float(rf_regressor.predict(data)[0])
               
         return render_template('result.html', lower_limit_linear = my_prediction_linear-10, upper_limit_linear = my_prediction_linear+5, 
             lower_limit_ridge = my_prediction_ridge-5, upper_limit_ridge = my_prediction_ridge+2,
-            lower_limit_lasso = my_prediction_lasso-7, upper_limit_lasso = my_prediction_lasso+3,
+            lower_limit_ann = my_prediction_ann-7, upper_limit_ann = my_prediction_ann+2,
 	    lower_limit_rf = my_prediction_rf-10, upper_limit_rf = my_prediction_rf)
 
 

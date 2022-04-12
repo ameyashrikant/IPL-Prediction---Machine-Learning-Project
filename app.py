@@ -72,10 +72,10 @@ def predict():
         temp_array = temp_array + [overs, runs, wickets, runs_in_prev_5, wickets_in_prev_5]
         
         data = np.array([temp_array])
-        my_prediction_linear = float(linear_regressor.predict(data)[0])
-        my_prediction_ridge = float(ridge_regressor.predict(data)[0])
+        my_prediction_linear = int(linear_regressor.predict(data)[0])
+        my_prediction_ridge = int(ridge_regressor.predict(data)[0])
         my_prediction_ann = int(ann.predict(data)[0])
-	my_prediction_rf = float(rf_regressor.predict(data)[0])
+	my_prediction_rf = int(rf_regressor.predict(data)[0])
               
         return render_template('result.html', lower_limit_linear = my_prediction_linear-10, upper_limit_linear = my_prediction_linear+5, 
             lower_limit_ridge = my_prediction_ridge-5, upper_limit_ridge = my_prediction_ridge+2,

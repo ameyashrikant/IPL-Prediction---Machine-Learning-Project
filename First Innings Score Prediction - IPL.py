@@ -81,8 +81,8 @@ file_name = 'first-innings-score-lr-model-rf.pkl'
 pickle.dump(regressor, open(file_name,'wb'))
 
 # Articial Neural Network
-from sklearn.neural_network import MLPClassifier
-mlp = MLPClassifier(activation='relu')
+from sklearn.neural_network import MLPRegressor
+mlp = MLPRegressor(hidden_layer_sizes=(50,60,70,80,90,100), activation="logistic", alpha=0.0056, max_iter=1000, warm_start=True, max_fun=1007)
 mlp.fit(X_train,y_train)
 
 # Creating a pickle file for the classifier
